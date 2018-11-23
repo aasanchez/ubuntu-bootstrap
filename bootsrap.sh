@@ -13,11 +13,12 @@ if [ -d "/etc/apt/sources.list.d/" ]; then
     sudo rm -rf /etc/apt/sources.list.d/*
 fi
 
-sudo touch /etc/apt/sources.list
-echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic main universe multiverse restricted" >> /etc/apt/sources.list
-echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main universe multiverse restricted" >> /etc/apt/sources.list
-echo "deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-backports main universe multiverse restricted" >> /etc/apt/sources.list
-echo "deb http://security.ubuntu.com/ubuntu bionic-security main universe multiverse restricted" >> /etc/apt/sources.list
-echo "deb http://archive.canonical.com/ubuntu bionic partner" >> /etc/apt/sources.list
+sudo bash -c '<<E_O_APT >> /etc/apt/sources.list
+deb mirror://mirrors.ubuntu.com/mirrors.txt bionic main universe multiverse restricted
+deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main universe multiverse restricted
+deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-backports main universe multiverse restricted
+deb http://security.ubuntu.com/ubuntu bionic-security main universe multiverse restricted
+deb http://archive.canonical.com/ubuntu bionic partner
+E_O_APT'
 
 sudo apt-get update
