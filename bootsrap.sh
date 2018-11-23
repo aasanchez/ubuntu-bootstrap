@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-read  -n 1 -p "Windows UserId (/mnt/c/Users/<UserId>):" UserId
-
-echo $UserId
-
 sudo apt-get install -qq curl unzip git-core ack-grep software-properties-common \
 build-essential telnet dnsutils
 
