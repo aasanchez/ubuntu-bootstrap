@@ -22,3 +22,4 @@ deb http://archive.canonical.com/ubuntu bionic partner
 E_O_APT'
 
 sudo apt-get update
+sudo apt-get upgrade -y
