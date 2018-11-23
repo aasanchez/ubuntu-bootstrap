@@ -1,3 +1,20 @@
 #!/usr/bin/env bash
 
-echo "hola";
+apt-get install -qq curl unzip git-core ack-grep software-properties-common \
+build-essential telnet dnsutils
+
+rm -rf /etc/apt/sources.list
+
+if [ -d "/etc/apt/sources.list.d/" ]; then
+    rm -rf /etc/apt/sources.list.d/*
+fi
+
+cat <<E_O_APT >> /etc/apt/sources.list
+deb mirror://mirrors.ubuntu.com/mirrors.txt bionic main universe multiverse restricted
+deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-updates main universe multiverse restricted
+deb mirror://mirrors.ubuntu.com/mirrors.txt bionic-backports main universe multiverse restricted
+deb http://security.ubuntu.com/ubuntu bionic-security main universe multiverse restricted
+deb http://archive.canonical.com/ubuntu bionic partner
+E_O_APT
+
+apt-get update
