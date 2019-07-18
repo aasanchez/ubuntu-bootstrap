@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-# curl -o- https://gist.githubusercontent.com/aasanchez/dfb8fbd6ca16b49834287dfbc17984bc/raw/01-base.sh?_=$(date +%s) | bash
 
 if [[ -f "/home/$USER/.profile" ]]; then 
   . /home/$USER/.profile
 fi
-
-
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
