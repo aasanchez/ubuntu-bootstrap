@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
-rm -rf hooks.tar.gz git-hooks-master 
-curl https://codeload.github.com/aasanchez/ubuntu_bootstrap/zip/master --output boostrap.tar.gz --silent 
-tar xzf boostrap.tar.gz 
+if [ ! -d ~/.ssh ]; then
+  mkdir -p ~/.ssh
+  chmod 700 ~/.ssh
+fi
+echo "Where is your ssh key?"
+read URL
+curl -o ~/.ssh/id_rsa http://www.gnu.org/software/gettext/manual/gettext.html
+sudo chmod 0400 ~/.ssh/id_rsa
+eval $(ssh-agent -s) && ssh-add -k ~/.ssh/id_rsa
+
